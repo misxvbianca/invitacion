@@ -1,8 +1,8 @@
 // js/app.js
 
 // --- 1. CUENTA REGRESIVA ---
-// Cambia aquí la fecha exacta de tu fiesta
-const fechaFiesta = new Date("May 15, 2026 20:00:00").getTime();
+// Fecha exacta de la fiesta de Bianca
+const fechaFiesta = new Date("May 02, 2026 20:00:00").getTime();
 
 const intervalo = setInterval(function() {
     const ahora = new Date().getTime();
@@ -23,56 +23,37 @@ const intervalo = setInterval(function() {
     // Si la fecha ya pasó
     if (distancia < 0) {
         clearInterval(intervalo);
-        document.getElementById("countdown").innerHTML = "<h2>¡A disfrutar de la fiesta!</h2>";
+        document.getElementById("countdown").innerHTML = "<h2>¡A disfrutar de la fiesta bajo las estrellas!</h2>";
     }
 }, 1000);
 
 
-// --- 2. REPRODUCTOR DE MÚSICA (YouTube Iframe API) ---
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-var player;
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player-musica-fondo', {
-        height: '0',
-        width: '0',
-        playerVars: {
-            'autoplay': 1, // Intentamos que inicie sola
-            'controls': 0,
-            'playlist': 'KaM1bCuG4xo', // ID del video musical
-            'loop': 1
-        },
-        events: {
-            'onReady': onPlayerReady
-        }
-    });
-}
-
-function onPlayerReady(event) {
-    event.target.setVolume(80);
-    // Intentamos reproducir, si el navegador lo bloquea, el usuario usará el botón manual
-    event.target.playVideo(); 
-}
-
-// Control del botón de música visible en pantalla
+// --- 2. REPRODUCTOR DE MÚSICA (HTML5 Audio) ---
+const audioFondo = document.getElementById('bg-audio');
 const musicBtn = document.getElementById('music-btn');
 
-musicBtn.addEventListener('click', () => {
-    if (player && typeof player.getPlayerState === 'function') {
-        let state = player.getPlayerState();
-        if (state === 1 || state === 3) { // Si está reproduciendo o cargando
-            player.pauseVideo();
-            musicBtn.innerText = "🔇 Reproducir Música";
-        } else {
-            player.playVideo();
-            musicBtn.innerText = "🎵 Pausar Música";
-        }
-    } else {
-        // Fallback por si la API tarda un segundo extra en cargar
-        player.playVideo();
+// Bajar el volumen al 50% para que no asuste al cargar
+audioFondo.volume = 0.5;
+
+// Truco para intentar reproducir la música al primer clic o toque en cualquier parte de la pantalla
+window.addEventListener('click', () => {
+    if(audioFondo.paused) {
+        audioFondo.play().catch(error => {
+            console.log("El navegador bloqueó la reproducción automática.");
+        });
         musicBtn.innerText = "🎵 Pausar Música";
+    }
+}, { once: true }); // El evento global solo se ejecuta una vez
+
+// Control manual del botón visible
+musicBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Evita conflictos con el clic global de arriba
+    
+    if (audioFondo.paused) {
+        audioFondo.play();
+        musicBtn.innerText = "🎵 Pausar Música";
+    } else {
+        audioFondo.pause();
+        musicBtn.innerText = "🔇 Reproducir Música";
     }
 });
