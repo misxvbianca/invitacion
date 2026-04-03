@@ -11,8 +11,8 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    /* Fondo principal: Súper oscuro para que resalten los cuadros */
-    background-color: #03060a; 
+    /* Fondo principal: AZUL NOCHE PROFUNDO (Revertido y ajustado) */
+    background-color: #050a15; 
     color: #e0e6ed;
     text-align: center;
     overflow-x: hidden;
@@ -82,13 +82,13 @@ h1, h2, h3 {
 
 .metallic-btn:hover {
     background: linear-gradient(to bottom, #ffffff, #b0b0b0);
-    color: #03060a;
+    color: #050a15;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
 .metallic-btn-filled {
     background: linear-gradient(to bottom, #ffffff, #e0e0e0, #b0b0b0);
-    color: #03060a;
+    color: #050a15;
     border: none;
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
 }
@@ -106,7 +106,7 @@ h1, h2, h3 {
     height: 55px;
     border-radius: 50%;
     background: linear-gradient(to bottom, #ffffff, #b0b0b0);
-    color: #03060a;
+    color: #050a15;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
@@ -119,15 +119,9 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   4. DIVISORES GRÁFICOS (ESTRELLAS COMO BLOQUE)
+   4. DIVISORES GRÁFICOS (Ahora integrados en los cuadros)
    ========================================================================== */
-.divisor-estrellas {
-    display: block;
-    width: 90%;
-    max-width: 350px;
-    height: auto;
-    margin: 30px auto; 
-}
+/* Eliminamos el .divisor-estrellas viejo y creamos el nuevo efecto de "capas" */
 
 .luna-footer {
     display: block;
@@ -137,7 +131,7 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   5. ESTRUCTURA DE PÁGINA Y SECCIONES EN CUADROS
+   5. ESTRUCTURA DE PÁGINA Y SECCIONES EN CUADROS (Ajustado)
    ========================================================================== */
 .hero {
     min-height: 100vh;
@@ -145,7 +139,7 @@ h1, h2, h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 50px 20px;
+    padding: 50px 20px 100px 20px; /* Damos más espacio abajo para que no se choque con el primer cuadro */
 }
 
 .hero-content {
@@ -157,23 +151,43 @@ h1, h2, h3 {
     z-index: 2;
 }
 
-/* LA MAGIA DE LOS CUADROS */
+/* LA MAGIA DE LOS CUADROS Y ESTRELLAS APOYADAS */
 .seccion {
-    border-radius: 25px; /* Bordes redondeados como en el video */
-    margin: 0 15px; /* Las separa de los bordes de la pantalla */
-    padding: 40px 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5); /* Sombra para que floten */
-    border: 1px solid rgba(176, 176, 176, 0.1); /* Borde súper sutil */
+    border-radius: 25px; 
+    margin: 0 15px; 
+    padding: 40px 20px 60px 20px; /* Más padding abajo para acomodar las estrellas */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5); 
+    border: 1px solid rgba(176, 176, 176, 0.1); 
+    position: relative; /* Necesario para posicionar las estrellas integradas */
+    margin-bottom: 40px; /* Las separa entre sí */
 }
 
-/* COLOR 1: Azul noche un poco más claro que el fondo */
+/* NUEVA MAGIA: Estrellas apoyadas/integradas al final de cada cuadro */
+.divisor-estrellas-integrado::after {
+    content: "";
+    position: absolute;
+    bottom: -20px; /* Ligeramente por debajo del borde de la tarjeta para que parezca "apoyada" */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 350px;
+    height: 50px; /* Altura de la máscara de estrellas */
+    background-image: url('../img/divisor.png');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: -1; /* Se pone por detrás del texto pero por delante del fondo */
+    opacity: 0.8;
+}
+
+/* COLOR 1: Azul noche un poco más claro que el fondo para que flote sutilmente */
 .cuadro-color-1 {
-    background: linear-gradient(145deg, #0c182e, #060d1a);
+    background: linear-gradient(145deg, #101c3d, #091228);
 }
 
-/* COLOR 2: Gris/Azul profundo */
+/* COLOR 2: Gris/Azul profundo sutil */
 .cuadro-color-2 {
-    background: linear-gradient(145deg, #121621, #06090e);
+    background: linear-gradient(145deg, #181d33, #0b0f20);
 }
 
 /* Componentes de la portada */
@@ -188,8 +202,8 @@ h1, h2, h3 {
 .frase { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; line-height: 1.6; color: #e0e6ed; }
 
 /* ==========================================================================
-   6. COMPONENTES INTERNOS (Adaptados para no verse "caja sobre caja")
-   ========================================================================== */
+   6. COMPONENTES INTERNOS (Adaptados)
+   ========================================================================= */
    
 .countdown {
     display: flex;
@@ -200,7 +214,7 @@ h1, h2, h3 {
 }
 
 .countdown .box {
-    background: rgba(0, 0, 0, 0.2); /* Fondo transparente para que funda con el cuadro */
+    background: rgba(0, 0, 0, 0.2); 
     padding: 20px;
     border-radius: 10px;
     min-width: 90px;
@@ -222,12 +236,12 @@ h1, h2, h3 {
 }
 
 .card {
-    background: rgba(0, 0, 0, 0.15); /* Fondo fundido */
+    background: rgba(0, 0, 0, 0.15); 
     padding: 30px 20px;
     border-radius: 15px;
     width: 100%;
     max-width: 350px;
-    border: none; /* Quitamos el borde para limpiar el diseño */
+    border: none; 
 }
 
 .card h3 {
@@ -306,5 +320,5 @@ footer { padding: 30px; background: #020408; font-size: 0.9rem; letter-spacing: 
     .script-name.metallic-text { font-size: 8rem; }
     .fecha { font-size: 1.8rem; }
     .subtitle-xv { font-size: 2.2rem; }
-    .seccion { max-width: 800px; margin: 0 auto; } /* Para que en PC no sean tan anchos */
+    .seccion { max-width: 800px; margin: 0 auto; margin-bottom: 40px; } 
 }
