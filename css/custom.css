@@ -295,12 +295,10 @@ h1, h2, h3 {
     background: rgba(12, 26, 54, 0.7);
     padding: 20px;
     border-radius: 10px;
-    display: inline-block;
-    margin-top: 15px;
-    margin-right: 20px; /* <- Línea agregada para separar del botón a la derecha */
-    margin-bottom: 20px; /* <- Línea agregada para separar del botón si cae abajo */
+    display: block; /* Esto fuerza a que el cuadro ocupe su propia línea */
+    width: fit-content; /* Evita que el cuadro se estire por toda la pantalla */
+    margin: 15px auto 30px auto; /* Lo centra y le da 30px de espacio abajo para separarlo del botón */
     border: 1px dashed #b0b0b0;
-    vertical-align: middle; /* Alinea la caja con el botón */
 }
 
 /* Footer */
