@@ -1,108 +1,382 @@
-<!DOCTYPE html>
-<html lang="es-AR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bianca - Mis 15 Años</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
-    <link rel="stylesheet" href="css/custom.css">
-</head>
-<body>
+<div id="controlador-musica">
+        <div id="play-pause-music" data-estado-music="pause" class="music-anim-icon"></div>
+    </div>
+    <div id="player-musica-fondo"></div>
 
-    <button id="music-btn-float" class="metallic-btn-circle" title="Reproducir/Pausar Música">🎵</button>
-    
-    <audio id="bg-audio" loop>
-        <source src="https://www.googleapis.com/drive/v3/files/1O8tOqyzqQQfCZXa6R5em88jlRFPpbFnC?alt=media&key=AIzaSyCrwPzKywqfRZmCeAwXhS8Q_xypKKOLi6M">
-    </audio>
-
-    <header class="hero">
-        <div class="hero-content">
-            <div class="top-star metallic-text">★</div>
-            
-            <div class="fecha-container">
-                <span class="linea-lateral"></span>
-                <p class="fecha metallic-text">02.05.2026</p>
-                <span class="linea-lateral"></span>
-            </div>
-            
-            <h1 class="script-name metallic-text">Bianca</h1>
-            
-            <h2 class="subtitle-xv metallic-text">Mis XV años</h2>
-            
-            <hr class="linea-centro">
-            
-            <div class="quote-container">
-                <span class="comillas metallic-text">❝</span>
-                <p class="frase">Te espero para compartir la alegría de esta noche mágica, inolvidable y única.</p>
-                <span class="comillas metallic-text">❞</span>
-            </div>
-        </div>
+    <div class="inv-container container">
         
-        <img src="img/divisor.png" alt="Estrellas" class="divisor-seccion">
-    </header>
-
-    <section class="seccion countdown-section">
-        <h3 class="metallic-text script-title">Falta</h3>
-        <div class="countdown" id="countdown">
-            <div class="box"><span id="dias" class="metallic-text">00</span><p>Días</p></div>
-            <div class="box"><span id="horas" class="metallic-text">00</span><p>Hs</p></div>
-            <div class="box"><span id="minutos" class="metallic-text">00</span><p>Min</p></div>
-            <div class="box"><span id="segundos" class="metallic-text">00</span><p>Seg</p></div>
-        </div>
-    </section>
-
-    <section class="seccion galeria">
-        <h3 class="metallic-text script-title">Mis Fotos</h3>
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Foto 1"></div>
-                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Foto 2"></div>
-                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Foto 3"></div>
+        <header class="hero">
+            <div class="hero-content">
+                <p class="fecha metallic-text">02 . 05 . 2026</p>
+                <h1 class="script-name metallic-text">Bianca</h1>
+                <h2 class="subtitle-xv metallic-text">Mis XV años</h2>
+                <hr class="linea-centro">
+                <div class="quote-container">
+                    <span class="comillas metallic-text">❝</span>
+                    <p class="frase">Te espero para compartir la alegría de esta noche mágica, inolvidable y única bajo las estrellas.</p>
+                    <span class="comillas metallic-text">❞</span>
+                </div>
             </div>
-        </div>
-        <div class="swipe-hint">
-            <span class="icon">👆</span>
-            <p>Desliza para ver más fotos</p>
-        </div>
-        <img src="img/divisor.png" alt="Estrellas" class="divisor-seccion divisor-abajo">
-    </section>
+            <img src="img/divisor.png" alt="Estrellas horizontales" class="divisor-seccion">
+        </header>
 
-    <section class="seccion detalles">
-        <div class="card">
-            <h3 class="metallic-text">La Fiesta</h3>
-            <p><strong>Día:</strong> Sábado 2 de Mayo - 21:00 hs</p>
-            <p><strong>Lugar:</strong> Quinta Ñu Porá</p>
-            <p><strong>Dirección:</strong>Av. Hipólito Yrigoyen 2121, B1618 El Talar, Provincia de Buenos Aires </p>
-            <a href="https://share.google/DSRya7kBnyFFzs3hs" target="_blank" class="btn metallic-btn">Ver en Google Maps</a>
-        </div>
-        <div class="card">
-            <h3 class="metallic-text">Código de vestimenta</h3>
-            <p><strong>Elegante Sport</strong></p>
-            <p>Te sugiero venir con zapatos cómodos para bailar toda la noche sin parar.</p>
-        </div>
-    </section>
+        <section class="seccion cuenta-regresiva countdown-section">
+            <h3 class="metallic-text script-title">Falta</h3>
+            <div id="reloj" class="reloj countdown">
+                <div class="box reloj-col"><span class="number metallic-text"></span><p class="time time-dias">Días</p></div>
+                <div class="box reloj-col"><span class="number metallic-text"></span><p class="time time-horas">Hs</p></div>
+                <div class="box reloj-col"><span class="number metallic-text"></span><p class="time time-minutos">Min</p></div>
+                <div class="box reloj-col no-border"><span class="number metallic-text"></span><p class="time time-segundos">Seg</p></div>
+            </div>
+        </section>
 
-    <section class="seccion regalos">
-        <h3 class="metallic-text script-title">Regalos</h3>
-        <p>Tu presencia es lo más importante para mí, pero si deseas hacerme un presente, puedes ayudarme con mis sueños:</p>
-        <p class="cbu-box"><strong>CBU:</strong> 0000003123456789<br><strong>Alias:</strong> BIANCA.XV.2026</p>
-        <a href="https://wa.me/5491154770613?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20esta%20gran%20fiesta.%20✨" target="_blank" class="btn btn-asistencia metallic-btn-filled">Confirmar por WhatsApp</a>
-    
-        <br><br>
-        <img src="img/luna_llena.png" alt="Luna" class="luna-footer">
-    </section>
+        <section id="detalles" class="seccion detalles cols-eventos">
+            <div class="col-evento card box-col box-col-fiesta">
+                <h3 class="title-col-evento metallic-text">La Fiesta</h3>
+                <div class="info-col info-col-fiesta">
+                    <p>Sábado 15 de Mayo - 20hs</p>
+                    <p>Salon de fiestas Avril</p>
+                    <p>Av. Corrientes 61 CABA</p>
+                    <a href="https://maps.google.com/?q=Av.+Corrientes+61,+CABA" target="_blank" class="btn metallic-btn modal-como-llegar">Ver en Google Maps</a>
+                </div>
+            </div>
+            
+            <div class="col-evento card box-col card-fiesta-vestuario">
+                <h3 class="title-card-fiesta metallic-text">Dress Code</h3>
+                <div class="info-col">
+                    <p>Una orientación para <br> tu vestuario:</p>
+                    <p><strong>Elegante / Formal</strong></p>
+                </div>
+            </div>
+        </section>
 
-    <footer>
-        <p>#15Bianca - ¡Nos vemos en la fiesta!</p>
-    </footer>
+        <section class="seccion regalos fiesta">
+            <h3 class="title metallic-text script-title">Regalos</h3>
+            <p class="subtitle">Si deseas regalarme algo más que tu hermosa presencia...</p>
+            <div class="anim-regalos"></div>
+            <p class="cbu-box"><strong>CBU:</strong> 0000003123456789<br><strong>Alias:</strong> BIANCA.XV.2026</p>
+            <br>
+            <a href="AQUI_PONES_EL_LINK_DE_TU_GOOGLE_FORM" target="_blank" class="btn btn-asistencia metallic-btn-filled">Confirmar Asistencia</a>
+        </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="js/app.js"></script>
-</body>
-</html>
+        <footer class="seccion footer">
+            <p>#15Bianca - ¡Nos vemos en la fiesta!</p>
+        </footer>
+
+    </div>  ```
+
+Dale al botón verde **Commit changes**.
+
+### Paso 2: Crear el Nuevo Diseño en `css/custom.css`
+
+Ve a tu archivo **`css/custom.css`** en GitHub, dale al lápiz para editar y **reemplaza todo el contenido antiguo** por este nuevo código completo y unificado. Este código se encarga de:
+
+1.  Establecer el fondo azul noche profundo en toda la página.
+2.  Cambiar los colores de texto y acentos a plateado metalizado (`.metallic-text`, `.metallic-btn`).
+3.  Posicionar tus imágenes `divisor.png` y `luna.png` como separadores estéticos entre secciones.
+4.  Asegurar que el reproductor de música integrado se vea perfecto en la esquina.
+
+```css
+/* css/custom.css (NUEVO DISEÑO AZUL NOCHE + PLATEADO) */
+
+/* --- 1. RESETEO BÁSICO Y CONFIGURACIÓN GENERAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #050a15; /* Fondo Azul Noche Profundo */
+    /* Pequeño degradado sutil para dar profundidad */
+    background-image: linear-gradient(to bottom, #050a15, #0a1b2e, #050a15); 
+    color: #e0e6ed; /* Texto claro azulado */
+    text-align: center;
+    overflow-x: hidden;
+    /* Default background config for parallax effects */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: normal;
+}
+
+/* Tipografía manuscrita para el nombre (Usando Playfair Italic si no agregaste Great Vibes) */
+.script-name {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 5rem;
+    line-height: 1;
+    display: inline-block;
+}
+
+/* --- 2. DECORACIONES DE LUNAS Y ESTRELLAS (INTEGRADAS) --- */
+/* Usamos pseudo-elementos en el body para las decoraciones fijas en pantalla sin tapar contenido */
+
+/* Banner de Estrellas (divisor.png) en la parte SUPERIOR */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px; 
+    background-image: url('../img/divisor.png');
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    pointer-events: none; 
+}
+
+/* Acento de Luna y Estrellas (luna.png) en la ESQUINA SUPERIOR IZQUIERDA */
+body::after {
+    content: "";
+    position: absolute; 
+    top: 90px; 
+    left: 10px;
+    width: 70px; 
+    height: 70px;
+    background-image: url('../img/luna.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8; 
+    pointer-events: none;
+}
+
+/* --- 3. EFECTO PLATEADO METALIZADO --- */
+
+/* Texto Plateado Metalizado */
+.metallic-text {
+    color: #b0b0b0; /* Color plateado base */
+    text-shadow: 0 0 10px rgba(176, 176, 176, 0.4);
+}
+
+/* Botones con borde Plateado */
+.metallic-btn {
+    border: 1px solid #b0b0b0;
+    color: #b0b0b0;
+    background: transparent;
+}
+
+.metallic-btn:hover {
+    background-color: #b0b0b0;
+    color: #050a15;
+    box-shadow: 0 0 15px rgba(176, 176, 176, 0.6);
+}
+
+/* Botón Plateado relleno (para Asistencia) */
+.metallic-btn-filled {
+    background-color: #b0b0b0;
+    color: #050a15;
+    border: 1px solid #b0b0b0;
+}
+
+.metallic-btn-filled:hover {
+    background-color: transparent;
+    color: #b0b0b0;
+    box-shadow: 0 0 15px rgba(176, 176, 176, 0.6);
+}
+
+/* --- 4. CONFIGURACIÓN DEL REPRODUCTOR INTEGRADO --- */
+#controlador-musica {
+    position: absolute; 
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Asegurar visibilidad del icono de música sobre el fondo oscuro */
+.music-anim-icon {
+    filter: invert(1); /* Invierte el color para que sea claro */
+}
+
+/* --- 5. ESTRUCTURA DE LAS SECCIONES --- */
+
+/* Contenedor principal semi-transparente para dar profundidad */
+.inv-container {
+    position: relative;
+    z-index: 10;
+    margin-top: 130px; /* Espacio para la cabecera fija */
+    background-color: rgba(10, 27, 46, 0.7); /* Azul profundo semi-transparente */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Secciones Generales */
+.seccion {
+    padding: 80px 20px;
+}
+
+/* Portada (Hero) Centrada */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-size: 6rem;
+    margin: 10px 0;
+}
+
+.hero-content h2 {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    color: #ffffff;
+}
+
+.hero-content .fecha {
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+}
+
+.linea-centro {
+    width: 60%;
+    max-width: 200px;
+    height: 1px;
+    border: none;
+    background: linear-gradient(to right, transparent, #b0b0b0, transparent);
+    margin: 25px auto;
+}
+
+.quote-container {
+    padding: 0 20px;
+}
+
+.comillas {
+    font-size: 2rem;
+    line-height: 0;
+}
+
+.frase {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ced4da;
+}
+
+/* Divisor de estrellas al final de la portada */
+.divisor-seccion {
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    margin-top: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Cuenta Regresiva */
+.countdown-section {
+    background-color: transparent;
+}
+
+.countdown-section h3 {
+    font-size: 2.5rem;
+    color: #b0b0b0;
+    margin-bottom: 40px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.countdown .box {
+    background-color: rgba(26, 42, 60, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 90px;
+    border: 1px solid rgba(176, 176, 176, 0.2);
+}
+
+.countdown span {
+    font-size: 3rem;
+    color: #b0b0b0;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Detalles (Tarjetas) */
+.detalles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.card {
+    background-color: rgba(26, 42, 60, 0.8);
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid rgba(176, 176, 176, 0.2);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.card h3 {
+    color: #b0b0b0;
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+.card p {
+    margin-bottom: 10px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+/* Regalos */
+.regalos p {
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+.cbu-box {
+    background-color: rgba(26, 42, 60, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 15px;
+    border: 1px dashed #b0b0b0;
+}
+
+/* Footer */
+footer {
+    padding: 40px;
+    background-color: #02050b;
+    color: #4a6285;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+/* --- 6. RESPONSIVE DESIGN (Celulares) --- */
+@media (max-width: 768px) {
+    .script-name { font-size: 3.5rem; }
+    .hero-content h1 { font-size: 3.5rem; }
+    .countdown { gap: 10px; }
+    .countdown .box { min-width: 75px; padding: 15px; }
+    .countdown span { font-size: 2rem; }
+}
