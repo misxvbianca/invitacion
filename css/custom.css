@@ -11,7 +11,8 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #050a15; 
+    /* Fondo principal: Súper oscuro para que resalten los cuadros */
+    background-color: #03060a; 
     color: #e0e6ed;
     text-align: center;
     overflow-x: hidden;
@@ -29,6 +30,7 @@ h1, h2, h3 {
     font-size: 4rem;
     text-transform: none;
     font-weight: normal;
+    margin-bottom: 20px;
 }
 
 .metallic-text {
@@ -80,13 +82,13 @@ h1, h2, h3 {
 
 .metallic-btn:hover {
     background: linear-gradient(to bottom, #ffffff, #b0b0b0);
-    color: #050a15;
+    color: #03060a;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
 .metallic-btn-filled {
     background: linear-gradient(to bottom, #ffffff, #e0e0e0, #b0b0b0);
-    color: #050a15;
+    color: #03060a;
     border: none;
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
 }
@@ -104,7 +106,7 @@ h1, h2, h3 {
     height: 55px;
     border-radius: 50%;
     background: linear-gradient(to bottom, #ffffff, #b0b0b0);
-    color: #050a15;
+    color: #03060a;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
@@ -116,31 +118,26 @@ h1, h2, h3 {
     justify-content: center;
 }
 
-#music-btn-float:hover {
-    transform: scale(1.1);
-}
-
 /* ==========================================================================
    4. DIVISORES GRÁFICOS (ESTRELLAS COMO BLOQUE)
    ========================================================================== */
-/* Aquí está la magia: un bloque sólido que separa limpio como en tu video */
 .divisor-estrellas {
     display: block;
     width: 90%;
     max-width: 350px;
     height: auto;
-    margin: 40px auto; /* 40px de respiro arriba y abajo */
+    margin: 30px auto; 
 }
 
 .luna-footer {
     display: block;
     width: 200px; 
     opacity: 0.8;
-    margin: 60px auto 20px auto; /* Centrada y separada del botón */
+    margin: 60px auto 20px auto; 
 }
 
 /* ==========================================================================
-   5. ESTRUCTURA DE PÁGINA Y SECCIONES
+   5. ESTRUCTURA DE PÁGINA Y SECCIONES EN CUADROS
    ========================================================================== */
 .hero {
     min-height: 100vh;
@@ -160,76 +157,38 @@ h1, h2, h3 {
     z-index: 2;
 }
 
+/* LA MAGIA DE LOS CUADROS */
 .seccion {
-    padding: 20px 20px 40px 20px; /* Redujimos padding porque el divisor ya da margen */
+    border-radius: 25px; /* Bordes redondeados como en el video */
+    margin: 0 15px; /* Las separa de los bordes de la pantalla */
+    padding: 40px 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5); /* Sombra para que floten */
+    border: 1px solid rgba(176, 176, 176, 0.1); /* Borde súper sutil */
+}
+
+/* COLOR 1: Azul noche un poco más claro que el fondo */
+.cuadro-color-1 {
+    background: linear-gradient(145deg, #0c182e, #060d1a);
+}
+
+/* COLOR 2: Gris/Azul profundo */
+.cuadro-color-2 {
+    background: linear-gradient(145deg, #121621, #06090e);
 }
 
 /* Componentes de la portada */
-.top-star {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.fecha-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.linea-lateral {
-    height: 1px;
-    flex-grow: 1;
-    max-width: 60px;
-    background: linear-gradient(to right, transparent, #b0b0b0, transparent);
-}
-
-.fecha {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    letter-spacing: 2px;
-}
-
-.subtitle-xv {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    letter-spacing: 2px;
-    margin-top: 10px;
-}
-
-.linea-centro {
-    width: 60%;
-    max-width: 200px;
-    height: 1px;
-    border: none;
-    background: linear-gradient(to right, transparent, #b0b0b0, transparent);
-    margin: 25px auto;
-}
-
-.quote-container {
-    padding: 0 20px;
-}
-
-.comillas {
-    font-size: 3rem;
-    line-height: 1; 
-    display: block;
-    margin: 10px 0;
-    opacity: 0.7; 
-}
-
-.frase {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #e0e6ed;
-}
+.top-star { font-size: 2.5rem; margin-bottom: 10px; }
+.fecha-container { display: flex; align-items: center; justify-content: center; gap: 15px; width: 100%; margin-bottom: 20px; }
+.linea-lateral { height: 1px; flex-grow: 1; max-width: 60px; background: linear-gradient(to right, transparent, #b0b0b0, transparent); }
+.fecha { font-family: 'Playfair Display', serif; font-size: 1.4rem; letter-spacing: 2px; }
+.subtitle-xv { font-family: 'Playfair Display', serif; font-size: 1.8rem; letter-spacing: 2px; margin-top: 10px; }
+.linea-centro { width: 60%; max-width: 200px; height: 1px; border: none; background: linear-gradient(to right, transparent, #b0b0b0, transparent); margin: 25px auto; }
+.quote-container { padding: 0 20px; }
+.comillas { font-size: 3rem; line-height: 1; display: block; margin: 10px 0; opacity: 0.7; }
+.frase { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; line-height: 1.6; color: #e0e6ed; }
 
 /* ==========================================================================
-   6. COMPONENTES INTERNOS (COUNTDOWN, CARDS, REGALOS, MAPA, GALERÍA)
+   6. COMPONENTES INTERNOS (Adaptados para no verse "caja sobre caja")
    ========================================================================== */
    
 .countdown {
@@ -241,11 +200,11 @@ h1, h2, h3 {
 }
 
 .countdown .box {
-    background: rgba(12, 26, 54, 0.7);
+    background: rgba(0, 0, 0, 0.2); /* Fondo transparente para que funda con el cuadro */
     padding: 20px;
     border-radius: 10px;
     min-width: 90px;
-    border: 1px solid rgba(176, 176, 176, 0.3);
+    border: 1px solid rgba(176, 176, 176, 0.1);
 }
 
 .countdown span {
@@ -254,7 +213,7 @@ h1, h2, h3 {
     margin-bottom: 5px;
 }
 
-/* Detalles y Tarjetas */
+/* Detalles y Tarjetas internas */
 .detalles {
     display: flex;
     flex-wrap: wrap;
@@ -263,12 +222,12 @@ h1, h2, h3 {
 }
 
 .card {
-    background: rgba(8, 18, 38, 0.8);
-    padding: 40px 30px;
+    background: rgba(0, 0, 0, 0.15); /* Fondo fundido */
+    padding: 30px 20px;
     border-radius: 15px;
     width: 100%;
     max-width: 350px;
-    border: 1px solid rgba(176, 176, 176, 0.3);
+    border: none; /* Quitamos el borde para limpiar el diseño */
 }
 
 .card h3 {
@@ -290,7 +249,7 @@ h1, h2, h3 {
 }
 
 .cbu-box {
-    background: rgba(12, 26, 54, 0.7);
+    background: rgba(0, 0, 0, 0.3);
     padding: 20px;
     border-radius: 10px;
     display: block; 
@@ -305,14 +264,11 @@ h1, h2, h3 {
     width: 100%;
     border-radius: 10px;
     overflow: hidden; 
-    border: 1px solid rgba(176, 176, 176, 0.3);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    border: 1px solid rgba(176, 176, 176, 0.2);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.mapa-container iframe {
-    display: block; 
-    width: 100%;
-}
+.mapa-container iframe { display: block; width: 100%; }
 
 /* Galería de Fotos (Swiper) */
 .galeria {
@@ -322,46 +278,20 @@ h1, h2, h3 {
     overflow: hidden; 
 }
 
-.swiper {
-    width: 280px;
-    height: 380px;
-    padding-bottom: 20px;
-    margin-top: 20px;
-}
-
+.swiper { width: 280px; height: 380px; padding-bottom: 20px; margin-top: 20px; }
 .swiper-slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    background-color: #ffffff;
-    padding: 12px 12px 45px 12px; 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    box-sizing: border-box;
-    border: 1px solid #ddd;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 8px; background-color: #ffffff; padding: 12px 12px 45px 12px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5); box-sizing: border-box; border: 1px solid #ddd;
 }
-
-.swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 4px;
-}
+.swiper-slide img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
 
 .swipe-hint {
-    margin-top: 20px;
-    color: #b0c4de;
-    font-size: 0.9rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    margin-top: 20px; color: #b0c4de; font-size: 0.9rem;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
     animation: pulseHint 2s infinite;
 }
-
-.swipe-hint .icon { 
-    font-size: 1.5rem; 
-}
+.swipe-hint .icon { font-size: 1.5rem; }
 
 @keyframes pulseHint {
     0% { transform: translateY(0); opacity: 0.8; }
@@ -369,29 +299,12 @@ h1, h2, h3 {
     100% { transform: translateY(0); opacity: 0.8; }
 }
 
-/* Footer */
-footer {
-    padding: 30px;
-    background: #02050b;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-}
+footer { padding: 30px; background: #020408; font-size: 0.9rem; letter-spacing: 2px; }
 
-/* ==========================================================================
-   7. RESPONSIVE DESIGN (Pantallas grandes)
-   ========================================================================== */
 @media (min-width: 768px) {
-    .swiper { 
-        width: 320px; 
-        height: 440px; 
-    }
-    .script-name.metallic-text { 
-        font-size: 8rem; 
-    }
-    .fecha { 
-        font-size: 1.8rem; 
-    }
-    .subtitle-xv { 
-        font-size: 2.2rem; 
-    }
+    .swiper { width: 320px; height: 440px; }
+    .script-name.metallic-text { font-size: 8rem; }
+    .fecha { font-size: 1.8rem; }
+    .subtitle-xv { font-size: 2.2rem; }
+    .seccion { max-width: 800px; margin: 0 auto; } /* Para que en PC no sean tan anchos */
 }
