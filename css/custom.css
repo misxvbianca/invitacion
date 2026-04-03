@@ -367,3 +367,17 @@ footer {
     .fecha { font-size: 1.8rem; }
     .subtitle-xv { font-size: 2.2rem; }
 }
+/* --- ESTILOS PARA EL MAPA INTERACTIVO --- */
+.mapa-container {
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden; /* Esto asegura que el mapa respete los bordes redondeados */
+    border: 1px solid rgba(176, 176, 176, 0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.mapa-container iframe {
+    display: block; /* Elimina un pequeño margen fantasma debajo del iframe */
+    width: 100%;
+}
