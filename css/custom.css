@@ -9,15 +9,16 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    /* Fondo Azul Noche Profundo Sólido */
     background-color: #050a15; 
     color: #e0e6ed;
     text-align: center;
     overflow-x: hidden;
-    /* Fondo azul noche con patrón de estrellas */
-    background-image: linear-gradient(rgba(5, 10, 21, 0.85), rgba(5, 10, 21, 0.85)), url('https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
+    /* Ya no necesitamos estas reglas para la imagen de fondo */
+    /* background-image: ...; */
+    /* background-attachment: fixed; */
+    /* background-position: center; */
+    /* background-size: cover; */
 }
 
 h1, h2, h3 {
