@@ -382,3 +382,23 @@ footer {
     display: block; /* Elimina un pequeño margen fantasma debajo del iframe */
     width: 100%;
 }
+/* --- CORRECCIÓN DE NITIDEZ Y ESPACIO PARA EL NOMBRE EN CELULARES --- */
+
+/* 1. Damos más aire a los costados para que la B no parezca pegada/cortada */
+.hero-content {
+    padding: 0 20px; /* Aumentamos el padding lateral de 0 a 20px */
+}
+
+/* 2. Mejoramos la nitidez del nombre */
+.script-name.metallic-text {
+    /* Trucos de CSS para forzar al navegador a renderizar el texto más nítido */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    
+    /* Refinamos el text-shadow para que no sea tan difuso */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4); 
+    
+    /* Reducimos sutilmente el tamaño de la floritura en celulares si sigue pegada */
+    letter-spacing: -2px; 
+}
