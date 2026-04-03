@@ -57,3 +57,16 @@ musicBtn.addEventListener('click', (e) => {
         musicBtn.innerText = "🔇 Reproducir Música";
     }
 });
+// --- 3. INICIALIZAR CARRUSEL DE FOTOS ---
+if (typeof Swiper !== 'undefined') {
+    var swiper = new Swiper(".mySwiper", {
+        effect: "cards",
+        grabCursor: true,
+        loop: true, // Hace que las fotos vuelvan a empezar al terminar
+        cardsEffect: {
+            perSlideOffset: 8, // Separación visual entre las cartas de atrás
+            perSlideRotate: 4, // Ángulo de rotación de las cartas
+            slideShadows: false, // Desactivamos las sombras por defecto para usar las nuestras en CSS
+        },
+    });
+}
