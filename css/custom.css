@@ -1,4 +1,4 @@
-/* css/custom.css (DISEÑO FINAL: CUADROS AZUL NOCHE CON ESTRELLAS APOYADAS "AL ESTILO FLORENCIA") */
+/* css/custom.css (DISEÑO FINAL: CUADROS AZUL NOCHE CON ESTRELLAS APOYADAS) */
 
 /* ==========================================================================
    1. RESETEO BÁSICO Y CONFIGURACIÓN GENERAL
@@ -11,7 +11,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    /* Fondo principal: AZUL NOCHE PROFUNDO (Revertido y ajustado) */
+    /* Fondo principal: AZUL NOCHE PROFUNDO */
     background-color: #050a15; 
     color: #e0e6ed;
     text-align: center;
@@ -119,9 +119,8 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   4. DIVISORES GRÁFICOS (Ahora integrados y APOYADOS)
+   4. DIVISORES GRÁFICOS (Integrados y APOYADOS)
    ========================================================================== */
-/* Eliminamos el .divisor-estrellas viejo y creamos el nuevo efecto de "capas" */
 
 .luna-footer {
     display: block;
@@ -139,7 +138,7 @@ h1, h2, h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 50px 20px 100px 20px; /* Damos más espacio abajo para que no se choque con el primer cuadro */
+    padding: 50px 20px 100px 20px; /* Espacio abajo para el primer cuadro */
 }
 
 .hero-content {
@@ -155,11 +154,11 @@ h1, h2, h3 {
 .seccion {
     border-radius: 25px; 
     margin: 0 15px; 
-    padding: 40px 20px 80px 20px; /* Aumentamos el padding inferior para dar espacio a las estrellas que ahora están ARRIBA */
+    padding: 40px 20px 80px 20px; /* Padding inferior aumentado para el efecto */
     box-shadow: 0 10px 25px rgba(0,0,0,0.5); 
     border: 1px solid rgba(176, 176, 176, 0.1); 
     position: relative; /* Necesario para posicionar las estrellas integradas */
-    margin-bottom: 60px; /* Aumentamos la separación entre tarjetas */
+    margin-bottom: 60px; /* Separación entre tarjetas */
     overflow: visible; /* Asegura que las estrellas puedan sangrar fuera de la tarjeta */
 }
 
@@ -167,14 +166,15 @@ h1, h2, h3 {
 .divisor-estrellas-integrado::after {
     content: "";
     position: absolute;
-    /* Ajustamos el posicionamiento para que sangren HACIA ABAJO desde el borde inferior de la tarjeta */
+    /* Sangran HACIA ABAJO desde el borde inferior de la tarjeta */
     bottom: -30px; 
     left: 50%;
     transform: translateX(-50%);
     width: 95%; /* Un poquito más anchas para que se note el efecto */
     max-width: 350px;
     height: 60px; /* Un poco más altas */
-    background-image: url('../img/divisor.png');
+    /* Apuntamos al archivo divisor.png que está en la carpeta raíz, no en img */
+    background-image: url('../divisor.png');
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
@@ -209,7 +209,7 @@ h1, h2, h3 {
 
 /* ==========================================================================
    6. COMPONENTES INTERNOS (Adaptados)
-   ========================================================================= */
+   ========================================================================== */
    
 .countdown {
     display: flex;
@@ -290,7 +290,7 @@ h1, h2, h3 {
 
 .mapa-container iframe { display: block; width: 100%; }
 
-/* Galería de Fotos (Swiper) */
+/* Galería de Fotos (Swiper Polaroid) */
 .galeria {
     display: flex;
     flex-direction: column;
@@ -304,6 +304,11 @@ h1, h2, h3 {
     border-radius: 8px; background-color: #ffffff; padding: 12px 12px 45px 12px; 
     box-shadow: 0 10px 25px rgba(0,0,0,0.5); box-sizing: border-box; border: 1px solid #ddd;
 }
+/* Asegura que el Swiper tenga un z-index menor para que no tape las estrellas integradas */
+.mySwiper {
+    z-index: 1;
+}
+
 .swiper-slide img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
 
 .swipe-hint {
