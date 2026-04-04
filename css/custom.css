@@ -1,4 +1,4 @@
-/* css/custom.css (DISEÑO FINAL: CUADROS AZUL NOCHE CON ESTRELLAS EN EL BORDE SUPERIOR) */
+/* css/custom.css (DISEÑO FINAL: CUADROS AZUL NOCHE CON ESTRELLAS APOYADAS) */
 
 /* ==========================================================================
    1. RESETEO BÁSICO Y CONFIGURACIÓN GENERAL
@@ -11,7 +11,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    /* Fondo principal: AZUL NOCHE PROFUNDO */
+    /* Fondo principal: AZUL NOCHE PROFUNDO (Revertido) */
     background-color: #050a15; 
     color: #e0e6ed;
     text-align: center;
@@ -119,7 +119,7 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   4. DIVISORES GRÁFICOS
+   4. DIVISORES GRÁFICOS (Ahora integrados y APOYADOS)
    ========================================================================== */
 
 .luna-footer {
@@ -130,7 +130,7 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   5. ESTRUCTURA DE PÁGINA Y SECCIONES EN CUADROS
+   5. ESTRUCTURA DE PÁGINA Y SECCIONES EN CUADROS (Ajustado)
    ========================================================================== */
 .hero {
     min-height: 100vh;
@@ -138,7 +138,7 @@ h1, h2, h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 50px 20px 100px 20px; 
+    padding: 50px 20px 100px 20px; /* Damos más espacio abajo para que no se choque con el primer cuadro */
 }
 
 .hero-content {
@@ -150,42 +150,36 @@ h1, h2, h3 {
     z-index: 2;
 }
 
-/* LA MAGIA DE LOS CUADROS */
+/* LA MAGIA DE LOS CUADROS Y ESTRELLAS APOYADAS */
 .seccion {
     border-radius: 25px; 
     margin: 0 15px; 
-    padding: 50px 20px 40px 20px; /* Más espacio arriba para que el texto no choque con las estrellas */
+    padding: 40px 20px 60px 20px; /* Padding inferior ajustado para acomodar las estrellas integradas */
     box-shadow: 0 10px 25px rgba(0,0,0,0.5); 
     border: 1px solid rgba(176, 176, 176, 0.1); 
-    position: relative; 
-    margin-top: 40px; /* Da espacio para las estrellas que sobresalen por arriba */
-    margin-bottom: 40px; 
-    overflow: visible; 
+    position: relative; /* Necesario para posicionar las estrellas integradas */
+    margin-bottom: 40px; /* Las separa entre sí */
 }
 
-/* NUEVA MAGIA: Estrellas apoyadas en la parte SUPERIOR de cada cuadro */
+/* NUEVA MAGIA: Estrellas apoyadas/integradas al final de cada cuadro (z-index negativo) */
 .divisor-estrellas-integrado::after {
     content: "";
     position: absolute;
-    top: -35px; /* <--- ¡ESTE ERA EL SECRETO! Las movemos al borde superior */
+    bottom: -30px; /* Sangran hacia abajo desde el borde inferior de la tarjeta */
     left: 50%;
     transform: translateX(-50%);
-    width: 95%; 
+    width: 90%;
     max-width: 350px;
-    height: 60px; 
-    
-    /* Nota: Si tus estrellas no cargan, cambia 'img/divisor.png' por 'divisor.png' dependiendo de tu carpeta en GitHub */
-    background-image: url('../img/divisor.png'); 
+    height: 50px; /* Altura de la máscara de estrellas */
+    background-image: url('../img/divisor.png');
     background-size: contain;
-    background-position: center bottom;
+    background-position: center center;
     background-repeat: no-repeat;
-    
-    z-index: 10; /* Para que pisen el borde de la tarjeta */
-    opacity: 0.9; 
-    pointer-events: none; 
+    z-index: -1; /* EL CAMBIO CLAVE: Se pone por detrás del texto de la tarjeta pero por delante del fondo */
+    opacity: 0.8;
 }
 
-/* COLOR 1: Azul noche */
+/* COLOR 1: Azul noche un poco más claro que el fondo para que flote sutilmente */
 .cuadro-color-1 {
     background: linear-gradient(145deg, #101c3d, #091228);
 }
@@ -207,7 +201,7 @@ h1, h2, h3 {
 .frase { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; line-height: 1.6; color: #e0e6ed; }
 
 /* ==========================================================================
-   6. COMPONENTES INTERNOS 
+   6. COMPONENTES INTERNOS (Adaptados para no verse "caja sobre caja")
    ========================================================================== */
    
 .countdown {
@@ -219,7 +213,7 @@ h1, h2, h3 {
 }
 
 .countdown .box {
-    background: rgba(0, 0, 0, 0.2); 
+    background: rgba(0, 0, 0, 0.2); /* Fondo transparente para que funda con el cuadro */
     padding: 20px;
     border-radius: 10px;
     min-width: 90px;
@@ -241,12 +235,12 @@ h1, h2, h3 {
 }
 
 .card {
-    background: rgba(0, 0, 0, 0.15); 
+    background: rgba(0, 0, 0, 0.15); /* Fondo fundido */
     padding: 30px 20px;
     border-radius: 15px;
     width: 100%;
     max-width: 350px;
-    border: none; 
+    border: none; /* Quitamos el borde para limpiar el diseño */
 }
 
 .card h3 {
@@ -289,7 +283,7 @@ h1, h2, h3 {
 
 .mapa-container iframe { display: block; width: 100%; }
 
-/* Galería de Fotos */
+/* Galería de Fotos (Swiper Polaroid) */
 .galeria {
     display: flex;
     flex-direction: column;
@@ -298,16 +292,12 @@ h1, h2, h3 {
 }
 
 .swiper { width: 280px; height: 380px; padding-bottom: 20px; margin-top: 20px; }
-.swiper-slide {
+.swiper-slidePolaroid {
     display: flex; align-items: center; justify-content: center;
     border-radius: 8px; background-color: #ffffff; padding: 12px 12px 45px 12px; 
     box-shadow: 0 10px 25px rgba(0,0,0,0.5); box-sizing: border-box; border: 1px solid #ddd;
 }
-.mySwiper {
-    z-index: 1;
-}
-
-.swiper-slide img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+.swiper-slidePolaroid img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
 
 .swipe-hint {
     margin-top: 20px; color: #b0c4de; font-size: 0.9rem;
@@ -333,5 +323,5 @@ footer { padding: 30px; background: #020408; font-size: 0.9rem; letter-spacing: 
     .script-name.metallic-text { font-size: 8rem; }
     .fecha { font-size: 1.8rem; }
     .subtitle-xv { font-size: 2.2rem; }
-    .seccion { max-width: 800px; margin: 40px auto; } 
+    .seccion { max-width: 800px; margin: 0 auto; margin-bottom: 40px; } 
 }
