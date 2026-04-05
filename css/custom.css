@@ -362,3 +362,45 @@ footer { padding: 30px; background: #020408; font-size: 0.9rem; letter-spacing: 
     .subtitle-xv { font-size: 2.2rem; }
     .seccion { max-width: 800px; margin: 40px auto; } 
 }
+/* ==========================================================================
+   SECCIÓN INSTAGRAM
+   ========================================================================== */
+.ig-info {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 25px 20px;
+    border-radius: 15px;
+    margin: 25px auto;
+    border: 1px dashed #b0b0b0;
+    max-width: 350px;
+}
+
+.ig-mention {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 5px 0 20px 0;
+    letter-spacing: 1px;
+}
+
+.ig-hashtag {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    margin-top: 5px;
+    line-height: 1;
+    text-transform: none;
+}
+
+/* Botón con efecto Instagram al pasar el dedo/mouse */
+.btn-ig {
+    background: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.btn-ig:hover {
+    background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+    border-color: transparent;
+    box-shadow: 0 0 20px rgba(220, 39, 67, 0.5);
+    color: white;
+}
